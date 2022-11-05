@@ -32,7 +32,7 @@ const isPlainObject = ( value: unknown ): boolean => {
 
 /* MAIN */
 
-const cloneAbstract = <T> ( value: T, visitor: { cloneArray, cloneArrayBuffer, cloneBoxedPrimitive, cloneDataView, cloneDate, cloneError, cloneMap, clonePlainObject, cloneRegExp, cloneSet, cloneTypedArray } ): T => {
+const cloneAbstract = <T> ( value: T, visitor: { cloneArray, cloneArrayBuffer, cloneBoxedPrimitive, cloneDataView, cloneDate, cloneError, cloneMap, clonePlainObject, cloneRegExp, cloneSet, cloneTypedArray }, context? ): T => {
 
   if ( !isClonable ( value ) ) return value;
 
@@ -40,47 +40,47 @@ const cloneAbstract = <T> ( value: T, visitor: { cloneArray, cloneArrayBuffer, c
 
   if ( constructor === Array ) {
 
-    return visitor.cloneArray ( value );
+    return visitor.cloneArray ( value, context );
 
   } else if ( isPlainObject ( value ) ) {
 
-    return visitor.clonePlainObject ( value );
+    return visitor.clonePlainObject ( value, context );
 
   } else if ( constructor === Map ) {
 
-    return visitor.cloneMap ( value );
+    return visitor.cloneMap ( value, context );
 
   } else if ( constructor === Set ) {
 
-    return visitor.cloneSet ( value );
+    return visitor.cloneSet ( value, context );
 
   } else if ( constructor === Date ) {
 
-    return visitor.cloneDate ( value );
+    return visitor.cloneDate ( value, context );
 
   } else if ( constructor === RegExp ) {
 
-    return visitor.cloneRegExp ( value );
+    return visitor.cloneRegExp ( value, context );
 
   } else if ( constructor === ArrayBuffer ) {
 
-    return visitor.cloneArrayBuffer ( value );
+    return visitor.cloneArrayBuffer ( value, context );
 
   } else if ( constructor === DataView ) {
 
-    return visitor.cloneDataView ( value );
+    return visitor.cloneDataView ( value, context );
 
   } else if ( ArrayBuffer.isView ( value ) ) {
 
-    return visitor.cloneTypedArray ( value );
+    return visitor.cloneTypedArray ( value, context );
 
   } else if ( constructor === Error || constructor === EvalError || constructor === RangeError || constructor === ReferenceError || constructor === SyntaxError || constructor === TypeError || constructor === URIError ) {
 
-    return visitor.cloneError ( value );
+    return visitor.cloneError ( value, context );
 
   } else if ( isBoxedPrimitive ( value ) ) {
 
-    return visitor.cloneBoxedPrimitive ( value );
+    return visitor.cloneBoxedPrimitive ( value, context );
 
   }
 

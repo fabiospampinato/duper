@@ -158,7 +158,20 @@ describe ( 'Clona', () => {
 
     });
 
-    it ( 'supports circular structures', t => {
+    it ( 'supports circular arrays', t => {
+
+      const circular = [];
+
+      circular[0] = circular;
+
+      const clone = cloneShallow ( circular );
+
+      t.true ( isEqual ( circular, clone ) );
+      t.is ( circular[0], clone[0] );
+
+    });
+
+    it ( 'supports circular objects', t => {
 
       const circular = {};
 
@@ -168,6 +181,33 @@ describe ( 'Clona', () => {
 
       t.true ( isEqual ( circular, clone ) );
       t.is ( clone.circular, clone.circular );
+
+    });
+
+    it ( 'supports circular maps', t => {
+
+      const circular = new Map ();
+
+      circular.set ( circular, circular );
+
+      const clone = cloneShallow ( circular );
+
+      t.true ( isEqual ( circular, clone ) );
+      t.is ( Array.from ( circular.keys () )[0], Array.from ( clone.keys () )[0] );
+      t.is ( Array.from ( circular.values () )[0], Array.from ( clone.values () )[0] );
+
+    });
+
+    it ( 'supports circular sets', t => {
+
+      const circular = new Set ();
+
+      circular.add ( circular );
+
+      const clone = cloneShallow ( circular );
+
+      t.true ( isEqual ( circular, clone ) );
+      t.is ( Array.from ( circular.values () )[0], Array.from ( clone.values () )[0] );
 
     });
 
@@ -364,7 +404,20 @@ describe ( 'Clona', () => {
 
     });
 
-    it.skip ( 'supports circular structures', t => { //TODO
+    it ( 'supports circular arrays', t => {
+
+      const circular = [];
+
+      circular[0] = circular;
+
+      const clone = cloneDeep ( circular );
+
+      t.true ( isEqual ( circular, clone ) );
+      t.not ( circular[0], clone[0] );
+
+    });
+
+    it ( 'supports circular objects', t => {
 
       const circular = {};
 
@@ -373,7 +426,34 @@ describe ( 'Clona', () => {
       const clone = cloneDeep ( circular );
 
       t.true ( isEqual ( circular, clone ) );
-      t.not ( clone.circular, clone.circular );
+      t.not ( circular.circular, clone.circular );
+
+    });
+
+    it ( 'supports circular maps', t => {
+
+      const circular = new Map ();
+
+      circular.set ( circular, circular );
+
+      const clone = cloneDeep ( circular );
+
+      t.true ( isEqual ( circular, clone ) );
+      t.not ( Array.from ( circular.keys () )[0], Array.from ( clone.keys () )[0] );
+      t.not ( Array.from ( circular.values () )[0], Array.from ( clone.values () )[0] );
+
+    });
+
+    it ( 'supports circular sets', t => {
+
+      const circular = new Set ();
+
+      circular.add ( circular );
+
+      const clone = cloneDeep ( circular );
+
+      t.true ( isEqual ( circular, clone ) );
+      t.not ( Array.from ( circular.values () )[0], Array.from ( clone.values () )[0] );
 
     });
 
