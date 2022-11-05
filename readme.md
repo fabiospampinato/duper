@@ -1,4 +1,4 @@
-# Clona
+# Duper
 
 Standalone functions for creating shallow clones or deep clones.
 
@@ -7,13 +7,13 @@ It supports comparing primitives, `Array`, `Map`, `Set`, `Date`, `RegExp`, `Arra
 ## Install
 
 ```sh
-npm install --save clona
+npm install --save duper
 ```
 
 ## Usage
 
 ```ts
-import {cloneShallow, cloneDeep} from 'clona';
+import {cloneShallow, cloneDeep} from 'duper';
 
 cloneShallow ({ foo: { value: 123 } }); // => Shallow clone of the object
 cloneDeep ({ foo: { value: 123 } }); // => Deep clone of the object

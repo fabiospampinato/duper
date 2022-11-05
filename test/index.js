@@ -7,7 +7,7 @@ import {cloneShallow, cloneDeep} from '../dist/index.js';
 
 /* MAIN */
 
-describe ( 'Clona', () => {
+describe ( 'Duper', () => {
 
   describe ( 'cloneShallow', it => {
 

@@ -1,6 +1,6 @@
 {
-  "name": "clona",
-  "repository": "github:fabiospampinato/clona",
+  "name": "duper",
+  "repository": "github:fabiospampinato/duper",
   "description": "Standalone functions for creating shallow clones or deep clones.",
   "version": "1.0.0",
   "type": "module",
