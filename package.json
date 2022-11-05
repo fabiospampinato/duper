@@ -9,6 +9,9 @@
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
+    "benchmark": "tsex benchmark",
+    "benchmark:watch": "tsex benchmark --watch",
+    "benchmark:init": "wget https://raw.githubusercontent.com/ahmadnassri/benchmark-node-clone/f6910c2a244a8a1e75c322483840f0b0d03c7a81/fixture.json -O tasks/benchmark.fixture.json",
     "clean": "tsex clean",
     "compile": "tsex compile",
     "compile:watch": "tsex compile --watch",
@@ -23,6 +26,7 @@
   ],
   "devDependencies": {
     "are-deeply-equal": "^1.0.1",
+    "benchloop": "^1.3.2",
     "fava": "^0.0.6",
     "tsex": "^1.1.2",
     "typescript": "^4.8.4"
