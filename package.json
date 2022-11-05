@@ -2,7 +2,7 @@
   "name": "duper",
   "repository": "github:fabiospampinato/duper",
   "description": "Standalone functions for creating shallow clones or deep clones.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "sideEffects": false,
   "main": "dist/index.js",
