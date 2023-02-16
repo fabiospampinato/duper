@@ -4,6 +4,7 @@
 import benchmark from 'benchloop';
 import fs from 'node:fs';
 import path from 'node:path';
+import process from 'node:process';
 import {cloneShallow, cloneDeep} from '../dist/index.js';
 
 /* HELPERS */
@@ -15,8 +16,7 @@ const fixture = JSON.parse ( fixtureContent );
 /* MAIN */
 
 benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
-  iterations: 10_000,
-  log: 'compact'
+  iterations: 10_000
 });
 
 benchmark ({

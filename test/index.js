@@ -1,8 +1,8 @@
 
 /* IMPORT */
 
-import {describe} from 'fava';
 import isEqual from 'are-deeply-equal';
+import {describe} from 'fava';
 import {cloneShallow, cloneDeep} from '../dist/index.js';
 
 /* MAIN */
