@@ -15,7 +15,7 @@ const fixture = JSON.parse ( fixtureContent );
 
 /* MAIN */
 
-benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
+benchmark.config ({
   iterations: 10_000
 });
 
