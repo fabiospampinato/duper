@@ -28,7 +28,7 @@
     "are-deeply-equal": "^1.0.2",
     "benchloop": "^2.1.0",
     "fava": "^0.2.0",
-    "tsex": "^2.2.2",
+    "tsex": "^2.2.4",
     "typescript": "^4.9.5"
   }
 }
